@@ -2,7 +2,9 @@ const fs = require('fs')
 const { exec } = require("child_process")
 
 const dataConsumer = (tweet) => {
+    const dateString = new Date(Date.now()).toLocaleDateString()
     const tweetInfo = extractTweetInfo(tweet)
+    tweetInfo.date = dateString
     const md = generateMdContent(tweetInfo)
     console.log("md: " + md)
     exec('git pull')
@@ -12,12 +14,12 @@ const dataConsumer = (tweet) => {
     console.log('mkdir')
     const path = `mds/${tweetInfo.region}.md`
     exec(`chmod +x ${dirPath}`)
-    exec(`echo "${md}" >> ${path}`, (err) => {
+    exec(`echo "${md}" > ${path}`, (err) => {
         console.log(err)
         console.log('echo')
         exec('git add .', (err) => {
             console.log(err)
-            exec(`git commit -m "uploaded ${path}, ${Date.now().toLocaleString()}"`, (err) => {
+            exec(`git commit -m "uploaded ${path}, ${dateString}"`, (err) => {
                 console.log(err)
                 exec('git push')
                 console.log('pushed')
@@ -55,7 +57,7 @@ const getRegion = (data) => {
 }
 
 const generateMdContent = (tweet) => {
-    return `# ${tweet.region}\n${tweet.text}\n![image](${tweet.imageUrl})`
+    return `# ${tweet.region}\n###${tweet.date}\n${tweet.text}\n![image](${tweet.imageUrl})`
 }
 
 module.exports = {
