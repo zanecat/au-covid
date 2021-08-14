@@ -1,21 +1,28 @@
-const {fs} = require('fs')
+const fs = require('fs')
 const { exec } = require("child_process")
 
 const dataConsumer = (tweet) => {
     const tweetInfo = extractTweetInfo(tweet)
     const md = generateMdContent(tweetInfo)
+    console.log("md: " + md)
     exec('git pull')
-    const path = `/mds/${tweetInfo.region}`
-    fs.writeFile(path, md, { flag: 'w' }, function (err) {
-        if (err) throw err;
-        console.log(path + " saved!");
-        exec('git add .', () => {
-            exec(`git commit -m "uploaded ${path}, ${Date.now().toLocaleString()}"`, () => {
+    console.log("pull")
+    const dirPath = 'mds'
+    exec('mkdir -p '+dirPath)
+    console.log('mkdir')
+    const path = `mds/${tweetInfo.region}.md`
+    exec(`echo ${md} >> ${path}`, (err) => {
+        console.log(err)
+        console.log('echo')
+        exec('git add .', (err) => {
+            console.log(err)
+            exec(`git commit -m "uploaded ${path}, ${Date.now().toLocaleString()}"`, (err) => {
+                console.log(err)
                 exec('git push')
+                console.log('pushed')
             })
         })
-    });
-
+    })
 }
 
 const extractTweetInfo = (tweet) => {
