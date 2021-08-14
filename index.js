@@ -1,9 +1,8 @@
-
 const Twitter = require('twitter-v2');
 const {streamFactory} = require("./services/stream-factory.js");
 const {dataConsumer} = require("./services/data-consumer.js");
 
-const TOKEN = "AAAAAAAAAAAAAAAAAAAAAHmxSgEAAAAAKeX%2BVebMVvE4tzzS1yyEyzSRYDo%3DZD856i6WzTUKnNfVFTy7igQnYqArBjAjsNxT4n56rDl2u8qa8n"
+const TOKEN = process.env.TWITTER_TOKEN
 
 if (TOKEN === '') {
     console.error("Please provide a twitter TOKEN")
