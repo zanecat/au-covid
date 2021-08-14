@@ -11,7 +11,8 @@ const dataConsumer = (tweet) => {
     exec('mkdir -p '+dirPath)
     console.log('mkdir')
     const path = `mds/${tweetInfo.region}.md`
-    exec(`echo ${md} >> ${path}`, (err) => {
+    exec(`chmod +x ${dirPath}`)
+    exec(`echo "${md}" >> ${path}`, (err) => {
         console.log(err)
         console.log('echo')
         exec('git add .', (err) => {
