@@ -2,6 +2,8 @@ const fs = require('fs')
 const { exec } = require("child_process")
 
 const dataConsumer = (tweet) => {
+    console.log('got tweet')
+    console.log(tweet)
     const dateString = new Date(Date.now()).toLocaleDateString()
     const tweetInfo = extractTweetInfo(tweet)
     tweetInfo.date = dateString
@@ -58,7 +60,7 @@ const getRegion = (data) => {
 }
 
 const generateMdContent = (tweet) => {
-    return `# ${tweet.region}\n###${tweet.date}\n${tweet.text}\n![image](${tweet.imageUrl})`
+    return `# ${tweet.region}\n###${tweet.date}\n${tweet.text}\n\n![image](${tweet.imageUrl})`
 }
 
 module.exports = {
