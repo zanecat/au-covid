@@ -2,6 +2,8 @@ const fs = require('fs')
 const { exec } = require("child_process")
 
 const dataConsumer = (tweet) => {
+    console.log('got tweet')
+    console.log(tweet)
     const dateString = new Date(Date.now()).toLocaleDateString()
     const tweetInfo = extractTweetInfo(tweet)
     tweetInfo.date = dateString
