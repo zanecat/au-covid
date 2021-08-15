@@ -7,22 +7,23 @@ const dataConsumer = (tweet) => {
     tweetInfo.date = dateString
     const md = generateMdContent(tweetInfo)
     console.log("md: " + md)
-    exec('git pull')
-    console.log("pull")
-    const dirPath = 'mds'
-    exec('mkdir -p '+dirPath)
-    console.log('mkdir')
-    const path = `mds/${tweetInfo.region}.md`
-    exec(`chmod +x ${dirPath}`)
-    exec(`echo "${md}" > ${path}`, (err) => {
-        console.log(err)
-        console.log('echo')
-        exec('git add .', (err) => {
+    exec('git pull', () => {
+        console.log("pull")
+        const dirPath = 'mds'
+        exec('mkdir -p '+dirPath)
+        console.log('mkdir')
+        const path = `mds/${tweetInfo.region}.md`
+        exec(`chmod +x ${dirPath}`)
+        exec(`echo "${md}" > ${path}`, (err) => {
             console.log(err)
-            exec(`git commit -m "uploaded ${path}, ${dateString}"`, (err) => {
+            console.log('echo')
+            exec('git add .', (err) => {
                 console.log(err)
-                exec('git push')
-                console.log('pushed')
+                exec(`git commit -m "uploaded ${path}, ${dateString}"`, (err) => {
+                    console.log(err)
+                    exec('git push')
+                    console.log('pushed')
+                })
             })
         })
     })

@@ -1,0 +1,13 @@
+name: publish
+on: [push]
+jobs:
+  fetch-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: List files in the repository
+        run: |
+          echo "#AU Covid-19" > ./README.md
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."
