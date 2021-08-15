@@ -60,7 +60,7 @@ const getRegion = (data) => {
 }
 
 const generateMdContent = (tweet) => {
-    return `# ${tweet.region}\n###${tweet.date}\n${tweet.text}\n\n![image](${tweet.imageUrl})`
+    return `\n\n#${tweet.region}\n###${tweet.date}\n${tweet.text}\n\n![image](${tweet.imageUrl})`
 }
 
 module.exports = {
