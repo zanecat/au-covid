@@ -14,6 +14,7 @@ const client = new Twitter({
 
 async function listenForever(streamFactory, dataConsumer) {
     try {
+        console.log('starting...')
         for await (const data of streamFactory(client)) {
             dataConsumer(data);
         }
