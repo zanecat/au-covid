@@ -1,7 +1,7 @@
 
 
-#vic
-###8/16/2021
+# vic
+### 8/16/2021
 Reported yesterday: 22 new local cases and 0 new cases acquired overseas. 
 - 19,880 vaccine doses were administered 
 - 29,986 test results were received 
