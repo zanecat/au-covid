@@ -15,12 +15,12 @@ jobs:
 
           target="mds"
           count=0
-          echo "#AU Covid-19 Update" > README.md
+          echo "#AU Covid-19 Update" > docs/README.md
           for f in "$target"/*
           do
               echo $f
               if [[ ${f} != *"test"* ]]; then
-                  cat "$f" >> README.md
+                  cat "$f" >> docs/README.md
               fi
               count=$((count+1))
           done
@@ -29,7 +29,6 @@ jobs:
       - name: commit
         uses: EndBug/add-and-commit@v7
         with:
-          branch: update
           message: 'publish'
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
