@@ -20,7 +20,7 @@ NSW recorded 478 new locally acquired cases of COVID-19 in the 24 hours to 8pm l
 ![image](https://pbs.twimg.com/media/E834s9SVoAMuhYr.jpg)
 
 
-# act
+# qld
 ### 8/16/2021
 Queensland #COVID19 update 16/08/21 
 
