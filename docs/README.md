@@ -30,6 +30,13 @@ Detailed information about COVID-19 cases in Queensland, can be found here: http
 ![image](https://pbs.twimg.com/media/E84KWrUVcAgh_tX.jpg)
 
 
+# sa
+### 8/17/2021
+South Australian COVID-19 update 17/8/21. For more information, go to https://t.co/mYnZsGpayo or contact the South Australian COVID-19 Information Line on 1800 253 787. https://t.co/b9u4sA3EMb
+
+![image](https://pbs.twimg.com/media/E8-LnaEVcAcdnW3.jpg)
+
+
 # vic
 ### 8/17/2021
 Reported yesterday: 24 new local cases and 1 new case acquired overseas (currently in HQ).
